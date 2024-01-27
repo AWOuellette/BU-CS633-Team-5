@@ -19,8 +19,24 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
-    public Optional<Course> singleCourse(ObjectId id){
-        return courseRepository.findById(id);
+    public Optional<Course> courseByCourseNumber(int courseNumber){
+        return courseRepository.findCourseByCourseNumber(courseNumber);
+    }
+
+    public Optional<Course> courseByCollege(String college){
+        return courseRepository.findCourseByCollege(college);
+    }
+
+    public Optional<Course> courseByDepartment(String department){
+        return courseRepository.findCourseByDepartment(department);
+    }
+
+    public Optional<Course> courseBySemester(String semester){
+        return courseRepository.findCourseBySemester(semester);
+    }
+
+    public Optional<Course> courseByProfessor(String professor){
+        return courseRepository.findCourseByProfessor(professor);
     }
 
 }

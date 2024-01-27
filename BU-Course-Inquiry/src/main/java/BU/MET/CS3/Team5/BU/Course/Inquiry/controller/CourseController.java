@@ -23,8 +23,28 @@ public class CourseController {
     public ResponseEntity<List<Course>> getAllCourses(){
         return new ResponseEntity<List<Course>>(courseService.allCourses(),HttpStatus.OK);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Course>> getSingleCourse(@PathVariable ObjectId id){
-        return new ResponseEntity<Optional<Course>>(courseService.singleCourse(id),HttpStatus.OK);
+    @GetMapping("/courseNumber/{courseNumber}")
+    public ResponseEntity<Optional<Course>> getCourseByCourseNumber(@PathVariable int courseNumber){
+        return new ResponseEntity<Optional<Course>>(courseService.courseByCourseNumber(courseNumber),HttpStatus.OK);
+    }
+
+    @GetMapping("/college/{college}")
+    public ResponseEntity<Optional<Course>> getCourseByCollege(@PathVariable String college){
+        return new ResponseEntity<Optional<Course>>(courseService.courseByCollege(college),HttpStatus.OK);
+    }
+
+    @GetMapping("/department/{department}")
+    public ResponseEntity<Optional<Course>> getCourseByDepartment(@PathVariable String department){
+        return new ResponseEntity<Optional<Course>>(courseService.courseByDepartment(department),HttpStatus.OK);
+    }
+
+    @GetMapping("/semester/{semester}")
+    public ResponseEntity<Optional<Course>> getCourseBySemester(@PathVariable String semester){
+        return new ResponseEntity<Optional<Course>>(courseService.courseBySemester(semester),HttpStatus.OK);
+    }
+
+    @GetMapping("/professor/{professor}")
+    public ResponseEntity<Optional<Course>> getCourseByProfessor(@PathVariable String professor){
+        return new ResponseEntity<Optional<Course>>(courseService.courseByProfessor(professor),HttpStatus.OK);
     }
 }
