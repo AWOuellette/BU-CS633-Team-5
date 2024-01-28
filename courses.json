@@ -29,5 +29,20 @@
             "Software Engineering"
         ],
         "reviewIds": []
+    },
+    {
+        "college": "MET",
+        "department": "CS",
+        "courseNumber": "526",
+        "title": "Data Structures and Algorithms",
+        "semester": "Fall 2",
+        "description": "This course covers and relates fundamental components of programs. Students use various data structures to solve computational problems, and implement data structures using a high-level programming language. Algorithms are created, decomposed, and expressed as pseudocode. The running time of various algorithms and their computational complexity are analyzed.",
+        "syllabus": "https://onlinecampus.bu.edu/bbcswebdav/courses/22fallmetcs526_o2/course/syllabus/allpages.htm",
+        "professor": "Vineet Raghu",
+        "categories": [
+            "Data Structures",
+            "Algorithms"
+        ],
+        "reviewIds": []
     }
 ]

@@ -15,6 +15,10 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
+    public void delete(ObjectId id){
+        courseRepository.deleteById(id);
+    }
+
     public Course save(Course course){
         return courseRepository.save(course);
     }

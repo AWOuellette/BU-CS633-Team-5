@@ -98,6 +98,24 @@
 						"url": "http://localhost:8080/api/v1/courses"
 					},
 					"response": []
+				},
+				{
+					"name": "Delete course",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"college\": \"MET\",\r\n    \"department\": \"CS\",\r\n    \"courseNumber\": \"526\",\r\n    \"title\": \"Data Structures and Algorithms\",\r\n    \"semester\": \"Fall 2\",\r\n    \"description\": \"This course covers and relates fundamental components of programs. Students use various data structures to solve computational problems, and implement data structures using a high-level programming language. Algorithms are created, decomposed, and expressed as pseudocode. The running time of various algorithms and their computational complexity are analyzed.\",\r\n    \"syllabus\": \"https://onlinecampus.bu.edu/bbcswebdav/courses/22fallmetcs526_o2/course/syllabus/allpages.htm\",\r\n    \"professor\": \"Vineet Raghu\",\r\n    \"categories\": [\r\n        \"Data Structures\",\r\n        \"Algorithms\"\r\n    ],\r\n    \"reviewIds\": []\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/v1/courses/65b5d18f09730d56779dcbb5"
+					},
+					"response": []
 				}
 			]
 		}

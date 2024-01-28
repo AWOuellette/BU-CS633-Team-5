@@ -16,6 +16,13 @@ import java.util.Optional;
 public class CourseController {
     @Autowired
     private CourseService courseService;
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCourse(@PathVariable ObjectId id){
+        courseService.delete(id);
+        return new ResponseEntity<String>("Course deleted.",HttpStatus.OK);
+    }
+
     @PostMapping
     public ResponseEntity<Course> createCourse(@RequestBody Course course){
         return new ResponseEntity<Course>(courseService.save(course),HttpStatus.CREATED);
