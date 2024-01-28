@@ -13,7 +13,8 @@
 					"name": "Get all courses",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses"
 					},
 					"response": []
 				},
@@ -21,7 +22,8 @@
 					"name": "Get course by number",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/courseNumber/6"
 					},
 					"response": []
 				},
@@ -29,7 +31,8 @@
 					"name": "Get course by college",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/college/MET"
 					},
 					"response": []
 				},
@@ -37,7 +40,8 @@
 					"name": "Get course by department",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/department/CS"
 					},
 					"response": []
 				},
@@ -45,7 +49,8 @@
 					"name": "Get course by semester",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/semester/Spring 1"
 					},
 					"response": []
 				},
@@ -53,7 +58,8 @@
 					"name": "Get course by professor",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/professor/Alex Elentukh"
 					},
 					"response": []
 				},
@@ -61,7 +67,8 @@
 					"name": "Get course by title",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/title/Software"
 					},
 					"response": []
 				},
@@ -69,7 +76,8 @@
 					"name": "Get course by category",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": "http://localhost:8080/api/v1/courses/category/Test"
 					},
 					"response": []
 				}
