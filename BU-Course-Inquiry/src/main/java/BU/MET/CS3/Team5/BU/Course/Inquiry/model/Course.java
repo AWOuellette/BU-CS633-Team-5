@@ -1,6 +1,7 @@
 package BU.MET.CS3.Team5.BU.Course.Inquiry.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
@@ -14,13 +15,14 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Course {
 
     @Id
     private ObjectId id;
     private String college;
     private String department;
-    private int courseNumber;
+    private String courseNumber;
     private String title;
     private String semester;
     private String description;
@@ -29,4 +31,16 @@ public class Course {
     private List<String> categories;
     @DocumentReference
     private List<Review> reviewIds;
+
+    public Course(String college, String department, String courseNumber, String title, String semester, String description, String syllabus, String professor, List<String> categories) {
+        this.college = college;
+        this.department = department;
+        this.courseNumber = courseNumber;
+        this.title = title;
+        this.semester = semester;
+        this.description = description;
+        this.syllabus = syllabus;
+        this.professor = professor;
+        this.categories = categories;
+    }
 }

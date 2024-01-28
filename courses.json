@@ -2,7 +2,7 @@
     {
         "college": "MET",
         "department": "CS",
-        "courseNumber": 633,
+        "courseNumber": "633",
         "title": "Software Quality, Testing, and Security Management",
         "semester": "Spring 1",
         "description": "Theory and practice of security and quality assurance and testing for each step of the software development cycle. Verification vs. validation. Test case design techniques, test coverage criteria, security development and verification practices, and tools for static and dynamic analysis. Standards. Test-driven development. QA for maintenance and legacy applications. From a project management knowledge perspective, this course covers the methods, tools and techniques associated with the following processes – Plan Quality, Perform Quality Assurance, and Perform Quality Control.",
@@ -13,6 +13,20 @@
             "Security Management",
             "Testing",
             "Software Quality"
+        ],
+        "reviewIds": []
+    },
+    {
+        "college": "MET",
+        "department": "CS",
+        "courseNumber": "673",
+        "title": "Software Engineering",
+        "semester": "Fall 1",
+        "description": "This course is an overview of techniques and tools to develop high-quality software. Topics include the software-development life cycle, such as Agile and DevOps; requirements analysis; software design; programming techniques; refactoring; testing; and software-management issues. An overview of secure software-development processes and techniques will also be introduced. This course also features a semester-long group project in which students will design and develop a real-world software system in groups using Agile methodology and various software-engineering (SE) tools, including Unified Modeling Language (UML) tools, project-management tools, programming frameworks, unit- and system-testing tools, integration tools, and version-control tools.",
+        "syllabus": "https://onlinecampus.bu.edu/bbcswebdav/courses/23fallmetcs673_o1/course/syllabus/allpages.htm",
+        "professor": "Yuting Zhang",
+        "categories": [
+            "Software Engineering"
         ],
         "reviewIds": []
     }
