@@ -15,6 +15,10 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
+    public Course save(Course course){
+        return courseRepository.save(course);
+    }
+
     public List<Course> allCourses(){
         return courseRepository.findAll();
     }
