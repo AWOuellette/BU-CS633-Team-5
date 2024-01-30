@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
@@ -18,10 +19,12 @@ public class Review {
     private ObjectId id;
     private String body;
 
-    public Review(String body) {
+    public Review(String body, LocalDateTime created) {
         this.body = body;
+        this.created=created;
     }
 
+    @CreatedDate
     private LocalDateTime created;
 
 }
