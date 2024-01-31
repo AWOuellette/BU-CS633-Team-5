@@ -31,6 +31,8 @@ public class Course {
     private List<String> categories;
     @DocumentReference
     private List<Review> reviewIds;
+    @DocumentReference
+    private List<Tip> tipIds;
 
     public Course(String college, String department, String courseNumber, String title, String semester, String description, String syllabus, String professor, List<String> categories) {
         this.college = college;

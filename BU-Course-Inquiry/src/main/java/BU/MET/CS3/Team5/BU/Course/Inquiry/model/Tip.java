@@ -9,17 +9,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Document(collection = "reviews")
+@Document(collection = "tips")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Review {
+public class Tip {
     @Id
     private ObjectId id;
     private String body;
 
-    public Review(String body, LocalDateTime created) {
+    public Tip(String body, LocalDateTime created) {
         this.body = body;
         this.created=created;
     }
