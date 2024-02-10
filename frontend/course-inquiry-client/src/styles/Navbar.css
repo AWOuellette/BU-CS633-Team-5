@@ -1,0 +1,53 @@
+.navbar{
+    display:flex;
+    flex-direction: row;
+    padding: 16px;
+    box-shadow: 0 1px 3px -2px black;
+    background-color: #121619;
+}
+
+.navbar-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 2px;
+}
+
+.navbar-logo p {
+    font-weight: 700;
+    display: flex;
+    color: white;
+}
+
+.admin{
+    display: flex;
+    padding-right: 50px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.admin p{
+    color: white;
+    font-weight: 500;
+}
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 60px;
+}
+
+.nav-menu li{
+    flex: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
