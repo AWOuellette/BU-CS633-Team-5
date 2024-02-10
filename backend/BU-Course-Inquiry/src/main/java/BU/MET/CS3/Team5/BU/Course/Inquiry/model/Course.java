@@ -1,5 +1,7 @@
 package BU.MET.CS3.Team5.BU.Course.Inquiry.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +21,7 @@ import java.util.List;
 public class Course {
 
     @Id
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id;
     private String college;
     private String department;
