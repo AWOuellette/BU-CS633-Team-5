@@ -1,0 +1,13 @@
+.courses{
+    display: flex;
+    gap: 1rem;
+}
+
+.courseName{
+    display: flex;
+    flex-direction: column;
+    background-color: #F8F7F7;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: space-between;
+}

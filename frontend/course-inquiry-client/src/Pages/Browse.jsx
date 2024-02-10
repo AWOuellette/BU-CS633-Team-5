@@ -3,7 +3,7 @@ import Coursecard from "../components/course/Coursecard";
 const Browse= ({courses}) =>{
     return(
 
-    <div className="courses">
+    <div className="browseCourses">
         <h1 className="coursesTitle">Available Courses</h1>
         <div className="courseList">
 
