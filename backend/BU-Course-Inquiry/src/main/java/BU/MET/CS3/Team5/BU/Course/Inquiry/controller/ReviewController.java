@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Map;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -28,5 +29,10 @@ public class ReviewController {
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload){
 
         return new ResponseEntity<Review>(reviewService.createReview(payload.get("body"),payload.get("college"),payload.get("department"),payload.get("courseNumber")), HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Review>> getAllReviews(){
+        return new ResponseEntity<List<Review>>(reviewService.allReviews(),HttpStatus.OK);
     }
 }
