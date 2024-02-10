@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/Coursecard.css'
+import {Link} from "react-router-dom";
 
 const Coursecard = ({courses}) => {
     return (
@@ -12,7 +13,9 @@ const Coursecard = ({courses}) => {
                             key={key}
                             <h4>{course.college + " " + course.department + course.courseNumber}</h4>
                             <h6>{course.title}</h6>
-                            <button>view</button>
+                            <Link to="/Course">
+                                <button> view </button>
+                            </Link>
                         </div>
 
                     )

@@ -7,6 +7,8 @@ import Browse from './Pages/Browse';
 import popup from './components/popup/Popup';
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import Course from "./Pages/Course";
+import Admin from "./Pages/Admin";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Browse' element={<Browse courses={courses}/>}/>
                 <Route path='/About' element={<About/>}/>
+                <Route path='/Course' element={<Course/>}/>
+                <Route path='/Admin' element={<Admin/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>

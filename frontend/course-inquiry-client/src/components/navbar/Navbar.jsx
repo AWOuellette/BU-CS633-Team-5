@@ -22,8 +22,7 @@ const Navbar= () => {
 
         <div className="admin">
 
-            <img src={admin} width={30} height={30} alt=""/>
-            <p>Admin</p>
+
         </div>
 
     </div>
