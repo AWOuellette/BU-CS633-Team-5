@@ -18,13 +18,13 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/secure/delete/{id}")
     public ResponseEntity<String> deleteCourse(@PathVariable ObjectId id){
         courseService.delete(id);
         return new ResponseEntity<String>("Course deleted.",HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/secure/upsert")
     public ResponseEntity<Course> createCourse(@RequestBody Course course){
         return new ResponseEntity<Course>(courseService.save(course),HttpStatus.CREATED);
     }
