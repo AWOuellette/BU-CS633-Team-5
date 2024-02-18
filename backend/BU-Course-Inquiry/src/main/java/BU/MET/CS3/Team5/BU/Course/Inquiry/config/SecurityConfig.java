@@ -27,6 +27,8 @@ public class SecurityConfig {
                 .securityMatcher("/**")
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/courses/secure/**") ).authenticated()
+                        .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/reviews/secure/**") ).authenticated()
+                        .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/tips/secure/**") ).authenticated()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
