@@ -14,27 +14,54 @@ function App() {
 
 
     const [courses, setCourses] = useState();
+   const [course,setCourse ]= useState();
+   const[reviews, setReviews]= useState([]);
+   const[tips,setTips]=useState([]);
+
 
     const getAllCourses = async () =>{
 
 
-    try
-    {
+        try
+        {
 
-    const response = await api.get("/api/v1/courses");
-    console.log(response.data);
+            const response = await api.get("/api/v1/courses");
+            console.log(response.data);
 
-    setCourses(response.data);
+            setCourses(response.data);
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
     }
-    catch(err)
-    {
-    console.log(err);
+    const getCourseData=async (id) => {
+
+        try
+        {
+
+            const response = await api.get(`/api/v1/courses/ID/${id}`);
+            const singleCourse= response.data
+            console.log(response.data);
+
+            setCourse(response.data);
+            setReviews(course.reviewIds);
+            setTips(course.tipIds)
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
     }
-   }
+
+
+
 
    useEffect(() =>{
    getAllCourses();
    },[])
+
+
 
   return (
     <div className="App">
@@ -44,7 +71,7 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Browse' element={<Browse courses={courses}/>}/>
                 <Route path='/About' element={<About/>}/>
-                <Route path='/Course' element={<Course/>}/>
+                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} />}/>
                 <Route path='/Admin' element={<Admin/>}/>
             </Routes>
             <Footer/>

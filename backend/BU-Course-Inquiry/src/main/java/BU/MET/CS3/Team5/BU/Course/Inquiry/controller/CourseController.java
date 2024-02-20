@@ -37,6 +37,11 @@ public class CourseController {
         return new ResponseEntity<Optional<List<Course>>>(courseService.courseByCourseNumber(courseNumber),HttpStatus.OK);
     }
 
+    @GetMapping("/ID/{id}")
+    public ResponseEntity<Object> findById(@PathVariable ObjectId id){
+        return new ResponseEntity<Object>(courseService.findById(id),HttpStatus.OK);
+    }
+
     @GetMapping("/college/{college}")
     public ResponseEntity<Optional<List<Course>>> getCourseByCollege(@PathVariable String college){
         return new ResponseEntity<Optional<List<Course>>>(courseService.courseByCollege(college),HttpStatus.OK);

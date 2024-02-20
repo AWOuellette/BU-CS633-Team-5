@@ -1,7 +1,69 @@
-.browseCourses{
-    display: grid;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0 2rem;
+.browsepage{
+
+
+
 }
 
+.sidebar{
+    margin-top: 60px;
+    width: 350px;
+    float: left;
+
+}
+
+.courseList{
+
+    width: 100%;
+
+}
+
+.coursesTitle{
+    padding-right: 210px;
+    font-weight: 60;
+    color: black;
+    bottom: 100px;
+    text-shadow: 1px 1px 2px black;
+}
+.courseList{
+
+}
+
+.banner img{
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    min-height: 140px;
+}
+
+.banner{
+}
+.top{
+    position:absolute;
+    height:300px;
+    width: 100%;
+
+}
+
+.bottom{
+    padding-top: 175px;
+    position: relative;
+}
+
+.bannerText{
+
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    font-size: 150px;
+    height: 60px;
+
+
+
+}
+
+.bannerText h1{
+    font-size: 60px;
+    font-weight: 60;
+    color: black;
+    text-shadow: 1px 1px 2px black;
+}

@@ -2,14 +2,20 @@
     display: flex;
     gap: 1rem;
     width: 70vw;
+
+
 }
 
 .courseName{
+
     display: flex;
     flex-direction: column;
-    background-color: #F8F7F7;
+    background-image: linear-gradient(to bottom right, lightcoral, orangered);
+
+    color: white;
     padding: 2rem;
     gap: 1rem;
+    align-items: center;
     justify-content: space-between;
     border-radius: 15px;
     width: 300px;
