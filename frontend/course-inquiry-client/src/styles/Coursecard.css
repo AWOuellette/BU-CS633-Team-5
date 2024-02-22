@@ -3,16 +3,27 @@
     gap: 1rem;
     width: 70vw;
 
+}
+.courses :hover{
+    background-image: linear-gradient(to bottom right,   #b2d8d8,#66b2b2);
+    transition: 0.5s;
+    color: white;
 
+}
+.courses:hover button{
+
+    background-image: none;
+}
+
+
+.courseName :hover{
+    background-image: none;
 }
 
 .courseName{
-
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to bottom right, lightcoral, orangered);
-
-    color: white;
+    color: #008080;
     padding: 2rem;
     gap: 1rem;
     align-items: center;
@@ -22,4 +33,13 @@
     height: 350px;
     margin: 20px;
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
+
+
+}
+
+
+.coursebtn :hover{
+    background-color: black;
+    color: white
 }

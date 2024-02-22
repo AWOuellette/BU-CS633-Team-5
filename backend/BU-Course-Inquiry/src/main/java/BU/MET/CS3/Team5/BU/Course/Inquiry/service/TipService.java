@@ -24,10 +24,10 @@ public class TipService {
     public void delete(ObjectId id){
         tipRepository.deleteById(id);
     }
-    public Tip createTip(String body, String college, String department, String courseNumber){
+    public Tip createTip(String body, String id){
         Tip tip =tipRepository.insert(new Tip(body, LocalDateTime.now()));
 
-        mongoTemplate.update(Course.class).matching(Criteria.where("college").is(college).and("department").is(department).and("courseNumber").is(courseNumber)).apply(new Update().push("tipIds").value(tip)).first();
+        mongoTemplate.update(Course.class).matching(Criteria.where("id").is(id)).apply(new Update().push("tipIds").value(tip)).first();
         return tip;
     }
 

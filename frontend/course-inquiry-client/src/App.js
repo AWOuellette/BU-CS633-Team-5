@@ -4,12 +4,12 @@ import './styles/App.css';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Browse from './Pages/Browse';
-import popup from './components/popup/Popup';
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Course from "./Pages/Course";
 import Admin from "./Pages/Admin";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
 

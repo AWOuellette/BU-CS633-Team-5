@@ -26,10 +26,10 @@ public class ReviewService {
         reviewRepository.deleteById(id);
     }
 
-    public Review createReview(String body,  String college, String department, String courseNumber){
+    public Review createReview(String body,  String id){
         Review review =reviewRepository.insert(new Review(body, LocalDateTime.now()));
 
-        mongoTemplate.update(Course.class).matching(Criteria.where("college").is(college).and("department").is(department).and("courseNumber").is(courseNumber)).apply(new Update().push("reviewIds").value(review)).first();
+        mongoTemplate.update(Course.class).matching(Criteria.where("id").is(id)).apply(new Update().push("reviewIds").value(review)).first();
         return review;
     }
 

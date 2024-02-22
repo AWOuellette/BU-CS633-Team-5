@@ -1,9 +1,15 @@
 .search{
     height: 50%;
     padding-bottom: 20px;
+    padding-left: 2px;
+    color: white;
+    border-radius: 5px;
 }
 
 .filter-parent{
     padding-top: 10px;
     padding-right: 20px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
 }

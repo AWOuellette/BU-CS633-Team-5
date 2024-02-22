@@ -1,14 +1,17 @@
 import React, {useEffect, useRef} from 'react';
 import {Link, useParams} from 'react-router-dom'
 import '../styles/Course.css'
-import image from '../icons/courseimg.jpg'
+import image from '../icons/SQA.png'
 import api from "../api/axiosConfig";
-import Popup from '../components/popup/Popup';
+import ReviewPopup from '../components/popups/ReviewPopup';
+import TipPopup  from "../components/popups/TipPopup";
+import AdminPopup from "../components/popups/AdminPopup";
 
 const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
 
 
-    const buttonText = useRef();
+    const revText = useRef();
+    const tipText = useRef();
     let params = useParams();
     const id = params.id;
 
@@ -21,35 +24,32 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
     const addReview = async (e) => {
         e.preventDefault();
 
-        const txt = buttonText.current;
+        const revtxt = revText.current;
 
         try {
-            const response = await api.post("/api/v1/reviews", {body: buttonText.value, id: id});
+            const response = await api.post("/api/v1/reviews", {body: revtxt.value, id: id});
 
-            const updatedReviews = [...reviews, {body: buttonText.value}];
+            const updatedReviews = [...reviews, {body: revtxt.value}];
 
-            buttonText.value = "";
+            revtxt.value = "";
 
             setReviews(updatedReviews);
         } catch (err) {
             console.error(err);
         }
-
-
-
     }
 
     const addTip = async (e) => {
         e.preventDefault();
 
-        const tip = buttonText.current;
+        const tiptxt = tipText.current;
 
         try {
-            const response = await api.post("/api/v1/tips", {body: buttonText.value, id: id});
+            const response = await api.post("/api/v1/tips", {body: tiptxt.value, id: id});
 
-            const updatedTips = [...tips, {body: buttonText.value}];
+            const updatedTips = [...tips, {body: tiptxt.value}];
 
-            tip.value = "";
+            tiptxt.value = "";
 
             setTips(updatedTips);
         } catch (err) {
@@ -62,77 +62,83 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
 
         return (
             <div>
+                <div className="topbuttons">
                 <div className="back">
                     <Link to="/Browse">
                         <button>back</button>
                     </Link>
                 </div>
+                <div className="update">
+                    <Link to="/Browse">
+                        <button>update</button>
+                    </Link>
+                </div>
+            </div>
                 <div className="courseinfo">
+                    <div className="courseimg">
+                        <img  src={image} width="100%" height={675} alt=""/>
+                    </div>
                     <div className="courseheader">
                         <h1> {course?.title} </h1>
                         <h3>{course?.department + course?.courseNumber}</h3>
-                        <h6> {course?.professor} </h6>
+                        <h6> Professor: {course?.professor} </h6>
 
                     </div>
-                    <div className="courseimg">
-                        <img src={image} width={700} height={500} alt=""/>
 
-                    </div>
                     <div className="coursedescription">
+                        <h6>Description</h6>
                         <p>{course?.description}</p>
+                        <Link to={course?.syllabus} target="_blank">Syllabus</Link>
                     </div>
-                    <div className="syllabus">
-                        <Link to="https://www.google.com">Syllabus</Link>
-                    </div>
-                    <div className="reviews">
-                        <h6> Student reviews </h6>
-                        <div>
-
-
-                                    {
+                    <div className="tipreviewcontainer">
+                        <div className="reviews">
+                            <h6> Student reviews </h6>
+                            <div>
+                                {
 
                                     reviews?.map((r) => {
-                                    return(
-                                    <>
-                                    <div>
-                                        <p>{r.body}</p>
+                                        return (
+                                            <>
+                                                <div className="rBody">
+                                                    <p>"{r.body}"</p>
+                                                </div>
+
+                                            </>)
+
+                                    })
+                                }
                             </div>
+                            <ReviewPopup className="popupmodal" handleSubmit={addReview} revText={revText}
+                                         labelText="Write a Review??"/>
+                        </div>
+                        <div className="tips">
+                            <h6> Tips from former students </h6>
+                            <div>
 
-                        </>)
 
-                        })
-                                    }
-                                    </div>
-                                    <Popup handleSubmit={addReview} buttonText={buttonText} labelText="Write a Review??"/>
+                                {
+
+                                    tips?.map((t) => {
+                                        return (
+                                            <>
+                                                <div>
+                                                    <p>"{t.body}"</p>
+                                                </div>
+
+                                            </>)
+
+                                    })
+                                }
+
+                            </div>
+                            <TipPopup handleSubmit={addTip} tipText={tipText} labelText="Write a Tip?"/>
+                        </div>
                     </div>
-                    <div className="tips">
-                        <h6> Tips from former students </h6>
-                        <div>
 
-
-                            {
-
-                                tips?.map((t) => {
-                                    return (
-                                        <>
-                                            <div>
-                                                <p>{t.body}</p>
-                                            </div>
-
-                                        </>)
-
-                                })
-                            }
-
-                    </div>
-                        <Popup handleSubmit={addTip} buttonText={buttonText} labelText="Write a Tip?"/>
-                    </div>
-                    <button>add a tip</button>
-
+                </div>
             </div>
-</div>
 
-)
+        )
 }
 
 export default Course;
