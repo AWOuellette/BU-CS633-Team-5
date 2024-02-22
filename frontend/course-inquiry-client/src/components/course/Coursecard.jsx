@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {Select} from "@mui/material";
 import course from "../../Pages/Course";
 
-const Coursecard = ({courses,search,categories, setCategories}) => {
+const Coursecard = ({courses,search,category, setCategory}) => {
 
     return (
         <div className="courses">
@@ -23,12 +23,14 @@ const Coursecard = ({courses,search,categories, setCategories}) => {
                         return course
                     }
                 })
-                    /**.filter((course)=>{
-                    if(categories==''){
+                    .filter((course)=>{
+                    if(course.categories.includes(category)){
+                        return course
+                    }else if(category===""){
                         return course
                     }
                 })
-**/
+
 
                     .map((course, i) =>{
                     return(

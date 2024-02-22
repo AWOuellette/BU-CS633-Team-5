@@ -13,6 +13,7 @@ import AdminPopup from "../components/popups/AdminPopup";
 
  const Browse= ({courses,categories, setCategories,getCourseData}) => {
      const[search,setSearch]=useState([])
+     const[category,setCategory]=useState([])
 
 
      const updateCourse= async (e)=>{
@@ -71,16 +72,16 @@ import AdminPopup from "../components/popups/AdminPopup";
                                  id="demo-simple-select-standard"
 
                                  label="Category"
-                                 /**onChange={(e)=>(e.target.value)}**/
+                                 onChange={(e) => setCategory(e.target.value)}
                              >
                                  <MenuItem value="">
                                      <em>None</em>
                                  </MenuItem>
                                  <MenuItem value={"Software Development"}>Software Development</MenuItem>
-                                 <MenuItem value={20}>Security Management</MenuItem>
-                                 <MenuItem value={30}>Software Engineering</MenuItem>
-                                 <MenuItem value={30}>Data Structures</MenuItem>
-                                 <MenuItem value={30}>Algorithms</MenuItem>
+                                 <MenuItem value={"Security Management"}>Security Management</MenuItem>
+                                 <MenuItem value={"Software Engineering"}>Software Engineering</MenuItem>
+                                 <MenuItem value={"Data Structures"}>Data Structures</MenuItem>
+                                 <MenuItem value={"Algorithms"}>Algorithms</MenuItem>
                              </Select>
                          </FormControl>
 
@@ -90,7 +91,7 @@ import AdminPopup from "../components/popups/AdminPopup";
                      <div className="courseList">
 
 
-                     <Coursecard courses={courses} search={search} categories={categories} setCategories={setCategories}>
+                     <Coursecard courses={courses} search={search} category={category} setCategory={setCategory}>
                          </Coursecard>
                      </div>
                  </div>
