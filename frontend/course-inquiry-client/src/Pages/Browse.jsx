@@ -16,6 +16,8 @@ import AdminPopup from "../components/popups/AdminPopup";
      const[category,setCategory]=useState([])
 
 
+
+
      const updateCourse= async (e)=>{
          e.preventDefault();
          try
@@ -70,8 +72,9 @@ import AdminPopup from "../components/popups/AdminPopup";
                              <Select
                                  labelId="demo-simple-select-standard-label"
                                  id="demo-simple-select-standard"
-
+                                 defaultValue=""
                                  label="Category"
+                                 
                                  onChange={(e) => setCategory(e.target.value)}
                              >
                                  <MenuItem value="">

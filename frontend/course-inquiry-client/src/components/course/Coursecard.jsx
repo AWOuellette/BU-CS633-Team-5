@@ -6,6 +6,7 @@ import course from "../../Pages/Course";
 
 const Coursecard = ({courses,search,category, setCategory}) => {
 
+    console.log(category);
     return (
         <div className="courses">
             {
@@ -24,11 +25,14 @@ const Coursecard = ({courses,search,category, setCategory}) => {
                     }
                 })
                     .filter((course)=>{
-                    if(course.categories.includes(category)){
-                        return course
-                    }else if(category===""){
-                        return course
-                    }
+                        if(category===""){
+                            return course
+                        }else if(course.categories.includes(category)){
+                        return course}
+                        else if(category.length===0){
+                            return course
+
+                        }
                 })
 
 
