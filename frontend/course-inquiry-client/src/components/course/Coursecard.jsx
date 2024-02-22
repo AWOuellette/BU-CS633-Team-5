@@ -42,10 +42,14 @@ const Coursecard = ({courses,search,category, setCategory}) => {
                             <h6>{course.title}</h6>
 
                             <div className="ptag">
-                                {/**
-                            <p className={'badge bg-secondary'}>{course.categories?.map((category, i) => {
-                                return (course.categories[i] + '\n')
-                             })} </p>**/}
+
+                            <div>{course.categories?.map((category, i) => {
+                                return (
+                                    <span>
+                                        <p className={'badge bg-info'}> {course.categories[i]}</p>
+                                    </span>
+                            )
+                            })} </div>
                             </div>
                             <Link to={`/Course/${course.id}`}>
                                 <button className="coursebtn"> view</button>
