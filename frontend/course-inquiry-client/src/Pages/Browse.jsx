@@ -13,7 +13,6 @@ import AdminPopup from "../components/popups/AdminPopup";
 
  const Browse= ({courses,categories, setCategories,getCourseData}) => {
      const[search,setSearch]=useState([])
-     const[category,setCategory]=useState([])
 
 
      const updateCourse= async (e)=>{
@@ -72,7 +71,7 @@ import AdminPopup from "../components/popups/AdminPopup";
                                  id="demo-simple-select-standard"
 
                                  label="Category"
-                                 onOpen={(e) => setCategory(e.target.value)}
+                                 /**onChange={(e)=>(e.target.value)}**/
                              >
                                  <MenuItem value="">
                                      <em>None</em>
@@ -91,7 +90,7 @@ import AdminPopup from "../components/popups/AdminPopup";
                      <div className="courseList">
 
 
-                     <Coursecard courses={courses} search={search} category={category}>
+                     <Coursecard courses={courses} search={search} categories={categories} setCategories={setCategories}>
                          </Coursecard>
                      </div>
                  </div>

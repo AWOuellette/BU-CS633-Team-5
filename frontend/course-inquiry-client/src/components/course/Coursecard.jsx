@@ -2,8 +2,9 @@ import React from 'react';
 import '../../styles/Coursecard.css'
 import {Link} from "react-router-dom";
 import {Select} from "@mui/material";
+import course from "../../Pages/Course";
 
-const Coursecard = ({courses,search,category, setFilter}) => {
+const Coursecard = ({courses,search,categories, setCategories}) => {
 
     return (
         <div className="courses">
@@ -22,7 +23,12 @@ const Coursecard = ({courses,search,category, setFilter}) => {
                         return course
                     }
                 })
-
+                    /**.filter((course)=>{
+                    if(categories==''){
+                        return course
+                    }
+                })
+**/
 
                     .map((course, i) =>{
                     return(

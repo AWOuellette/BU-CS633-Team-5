@@ -80,6 +80,7 @@
 .courseheader h3{
     text-shadow: 1px 1px 2px cornsilk;
     justify-content: center;
+
 }
 
 .courseheader h6{
@@ -130,6 +131,7 @@
 }
 .coursedescription h6{
 
+    font-weight: bold;
     font-family: "Verdana", SansSerif;
 }
 .coursedescription{
@@ -171,7 +173,6 @@ button {
 
 .courseinfo{
 
-    background-Image: linear-gradient(to bottom right,   #E0E9EC ,#B5BDBF );
     padding-bottom: 20px;
 }
 .courseimg img{
