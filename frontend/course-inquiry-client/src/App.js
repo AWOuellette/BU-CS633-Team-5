@@ -35,6 +35,8 @@ function App() {
             console.log(err);
         }
     }
+
+
     const getCourseData=async (id) => {
 
         try

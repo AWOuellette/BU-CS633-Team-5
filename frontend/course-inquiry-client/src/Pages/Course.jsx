@@ -20,6 +20,21 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
         getCourseData(id);
     }, [])
 
+    const updateCourse= async (e)=>{
+        e.preventDefault();
+        try
+        {
+
+            const response = await api.post("/api/v1/courses/secure/upsert");
+            console.log(response.data);
+
+            setCourses(response.data);
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+    }
 
     const addReview = async (e) => {
         e.preventDefault();

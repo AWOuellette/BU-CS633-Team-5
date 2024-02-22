@@ -21,9 +21,7 @@ const Coursecard = ({courses,search,category,setFilter}) => {
                     }else if((course.department+course.courseNumber).toLowerCase().includes(search)){
                         return course
                     }
-                   else if(course.categories[0].toLowerCase().includes(category)){
-                        return course
-                    }
+                   
                 }).map((course, i) =>{
                     return(
 
