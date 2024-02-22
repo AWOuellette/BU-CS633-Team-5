@@ -7,13 +7,16 @@ import ReviewPopup from '../components/popups/ReviewPopup';
 import TipPopup  from "../components/popups/TipPopup";
 import AdminPopup from "../components/popups/AdminPopup";
 
-const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
+const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle})=> {
 
 
+
+    const adminKey = useRef();
     const revText = useRef();
     const tipText = useRef();
     let params = useParams();
     const id = params.id;
+
 
 
     useEffect(() => {
@@ -25,10 +28,10 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
         try
         {
 
-            const response = await api.post("/api/v1/courses/secure/upsert");
-            console.log(response.data);
 
-            setCourses(response.data);
+            const response = await api.post("/api/v1/courses/secure/upsert");
+            console.log("upsert" + response.data);
+
         }
         catch(err)
         {
@@ -83,38 +86,44 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
                         <button>back</button>
                     </Link>
                 </div>
-                <div className="update">
-                    <Link to="/Browse">
-                        <button>update</button>
-                    </Link>
-                </div>
+
             </div>
                 <div className="courseinfo">
                     <div className="courseimg">
-                        <img  src={image} width="100%" height={675} alt=""/>
+                        <img src={image} width="100%" height={680} alt=""/>
+                    </div>
+                    <div className="update">
+                        <AdminPopup labelText="Admin use only" handleSubmit={updateCourse}
+                                    adminKey={adminKey} getCourseData={getCourseData} course={course} college={college} setCollege={setCollege} title={title} setTitle={setTitle}/>
                     </div>
                     <div className="courseheader">
+
                         <h1> {course?.title} </h1>
                         <h3>{course?.department + course?.courseNumber}</h3>
                         <h6> Professor: {course?.professor} </h6>
 
                     </div>
 
+
                     <div className="coursedescription">
+
                         <h6>Description</h6>
                         <p>{course?.description}</p>
                         <Link to={course?.syllabus} target="_blank">Syllabus</Link>
+
                     </div>
+
                     <div className="tipreviewcontainer">
+
                         <div className="reviews">
                             <h6> Student reviews </h6>
                             <div>
                                 {
 
-                                    reviews?.map((r) => {
+                                    reviews?.map((r, i) => {
                                         return (
                                             <>
-                                                <div className="rBody">
+                                                <div className="rBody" key={i}>
                                                     <p>"{r.body}"</p>
                                                 </div>
 
@@ -133,10 +142,10 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews})=> {
 
                                 {
 
-                                    tips?.map((t) => {
+                                    tips?.map((t, i) => {
                                         return (
                                             <>
-                                                <div>
+                                                <div key={i}>
                                                     <p>"{t.body}"</p>
                                                 </div>
 

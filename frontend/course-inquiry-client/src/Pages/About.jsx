@@ -58,7 +58,7 @@ const About= () =>{
                         </div>
                         <div className='details'>
                             <h4>Jake K</h4>
-                            <h6>Team Leader</h6>
+                            <h6>Team Leader & UI Design</h6>
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@ const About= () =>{
                         </div>
                         <div className='details'>
                             <h4>Temi S</h4>
-                            <h6>Requirements</h6>
+                            <h6>Product Owner & Analyst</h6>
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@ const About= () =>{
                         </div>
                         <div className='details'>
                             <h4>Mesfin M</h4>
-                            <h6>QA Testing</h6>
+                            <h6>QA Tester</h6>
                         </div>
                     </div>
 

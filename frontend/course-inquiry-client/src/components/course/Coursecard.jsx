@@ -3,7 +3,7 @@ import '../../styles/Coursecard.css'
 import {Link} from "react-router-dom";
 import {Select} from "@mui/material";
 
-const Coursecard = ({courses,search,category,setFilter}) => {
+const Coursecard = ({courses,search,category, setFilter}) => {
 
     return (
         <div className="courses">
@@ -21,8 +21,10 @@ const Coursecard = ({courses,search,category,setFilter}) => {
                     }else if((course.department+course.courseNumber).toLowerCase().includes(search)){
                         return course
                     }
-                   
-                }).map((course, i) =>{
+                })
+
+
+                    .map((course, i) =>{
                     return(
 
                         <div className="courseName" key={i}>
@@ -31,9 +33,12 @@ const Coursecard = ({courses,search,category,setFilter}) => {
                             <h4>{course.college + " " + course.department + course.courseNumber}</h4>
                             <h6>{course.title}</h6>
 
+                            <div className="ptag">
+                                {/**
                             <p className={'badge bg-secondary'}>{course.categories?.map((category, i) => {
                                 return (course.categories[i] + '\n')
-                            })} </p>
+                             })} </p>**/}
+                            </div>
                             <Link to={`/Course/${course.id}`}>
                                 <button className="coursebtn"> view</button>
                             </Link>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL:'https://31f9-70-107-93-154.ngrok-free.app',
+    baseURL:'https://swift-better-verbally.ngrok-free.app',
     headers:{"ngrok-skip-browser-warning": "true"}
 });

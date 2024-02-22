@@ -17,6 +17,16 @@ function App() {
    const [course,setCourse ]= useState();
    const[reviews, setReviews]= useState([]);
    const[tips,setTips]=useState([]);
+   const[categories, setCategories]= useState([]);
+   const[college, setCollege]= useState();
+    const[department, setDepartment]= useState();
+    const[courseNumber, setCourseNumber]= useState();
+    const[semester, setSemester]= useState();
+    const[description, setDescription]= useState();
+    const[syllabus, setSyllabus]= useState();
+    const[professor, setProfessor]= useState();
+    const[image, setImage]= useState();
+    const[title,setTitle]=useState();
 
 
     const getAllCourses = async () =>{
@@ -47,8 +57,19 @@ function App() {
             console.log(response.data);
 
             setCourse(response.data);
-            setReviews(course.reviewIds);
-            setTips(course.tipIds)
+            setReviews(singleCourse.reviewIds);
+            setTips(singleCourse.tipIds);
+            setCategories(singleCourse.categories);
+            setCollege(singleCourse.college);
+            setDepartment(singleCourse.department);
+            setCourseNumber(singleCourse.courseNumber);
+            setSemester(singleCourse.semester);
+            setDescription(singleCourse.description);
+            setSyllabus(singleCourse.syllabus);
+            setProfessor(singleCourse.professor);
+            setImage(singleCourse.image);
+            setTitle(singleCourse.title);
+
         }
         catch(err)
         {
@@ -71,9 +92,9 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Home/>}/>
-                <Route path='/Browse' element={<Browse courses={courses}/>}/>
+                <Route path='/Browse' element={<Browse getCourseData={getCourseData} courses={courses} categories={categories} setCategories={setCategories} />}/>
                 <Route path='/About' element={<About/>}/>
-                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} />}/>
+                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDecription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} image={image} setImage={setImage} title={title} setTitle={setTitle}/>}/>
                 <Route path='/Admin' element={<Admin/>}/>
             </Routes>
             <Footer/>
