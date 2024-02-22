@@ -38,6 +38,22 @@
     margin-bottom: 5px;
 
 }
+.delete{
+
+    float: right;
+    margin-right: 65px;
+    margin-top: 10px;
+    width: 20px;
+    margin-bottom: 5px;
+
+}
+.delete button{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: black;
+    height: 30px;
+    width: 80px;
+}
 
 .tipreviewcontainer{
 

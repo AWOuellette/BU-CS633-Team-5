@@ -6,6 +6,7 @@ import api from "../api/axiosConfig";
 import ReviewPopup from '../components/popups/ReviewPopup';
 import TipPopup  from "../components/popups/TipPopup";
 import AdminPopup from "../components/popups/AdminPopup";
+import DeletePopup from "../components/popups/DeletePopUp";
 
 const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle})=> {
 
@@ -31,6 +32,22 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
 
             const response = await api.post("/api/v1/courses/secure/upsert");
             console.log("upsert" + response.data);
+
+        }
+        catch(err)
+        {
+            console.log(err);
+        }
+    }
+
+    const deleteCourse= async (e)=>{
+        e.preventDefault();
+        try
+        {
+
+
+            const response = await api.post("/api/v1/courses/secure/delete/"+{id});
+            console.log("delete" + response.data);
 
         }
         catch(err)
@@ -94,8 +111,16 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
                     </div>
                     <div className="update">
                         <AdminPopup labelText="Admin use only" handleSubmit={updateCourse}
-                                    adminKey={adminKey} getCourseData={getCourseData} course={course} college={college} setCollege={setCollege} title={title} setTitle={setTitle}/>
+                                    adminKey={adminKey} getCourseData={getCourseData} course={course} college={college}
+                                    setCollege={setCollege} title={title} setTitle={setTitle}/>
                     </div>
+                    <div className="delete">
+                        <DeletePopup labelText="Admin use only" handleSubmit={deleteCourse}
+                                     adminKey={adminKey} getCourseData={getCourseData} course={course} college={college}
+                                     setCollege={setCollege} title={title} setTitle={setTitle}/>
+                    </div>
+                    <br></br>
+                    <br></br>
                     <div className="courseheader">
 
                         <h1> {course?.title} </h1>
@@ -110,7 +135,8 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
                         <h6>Description</h6>
                         <p>{course?.description}</p>
                         <Link to={course?.syllabus} target="_blank">Syllabus</Link>
-
+                        <br></br>
+                        <br></br>
                     </div>
 
                     <div className="tipreviewcontainer">
@@ -158,7 +184,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
                             <TipPopup handleSubmit={addTip} tipText={tipText} labelText="Write a Tip?"/>
                         </div>
                     </div>
-
+                    <br></br>
                 </div>
             </div>
 
