@@ -24,7 +24,9 @@
 .update button{
     border-radius: 5px;
     cursor: pointer;
-    background-color: black;
+    background-color: dodgerblue;
+    color: white;
+    border: 1px dodgerblue;
     height: 30px;
     width: 80px;
 }
@@ -50,7 +52,8 @@
 .delete button{
     border-radius: 5px;
     cursor: pointer;
-    background-color: black;
+    background-color: darkred;
+    color: white;
     height: 30px;
     width: 80px;
 }
