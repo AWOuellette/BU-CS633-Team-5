@@ -19,7 +19,7 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/secure/{id}")
     public ResponseEntity<String> deleteReview(@PathVariable ObjectId id){
         reviewService.delete(id);
         return new ResponseEntity<String>("Review deleted.",HttpStatus.OK);

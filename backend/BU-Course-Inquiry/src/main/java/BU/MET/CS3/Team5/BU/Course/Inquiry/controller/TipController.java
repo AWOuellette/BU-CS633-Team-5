@@ -19,7 +19,7 @@ public class TipController {
     @Autowired
     private TipService tipService;
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/secure/{id}")
     public ResponseEntity<String> deleteTip(@PathVariable ObjectId id){
         tipService.delete(id);
         return new ResponseEntity<String>("Tip deleted.",HttpStatus.OK);
