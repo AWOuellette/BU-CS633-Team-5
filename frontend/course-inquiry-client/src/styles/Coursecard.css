@@ -16,6 +16,15 @@
     background-image: none;
 }
 
+.courses button{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: teal ;
+    color: white;
+    height: 30px;
+    width: 130px;
+}
+
 
 
 .courseName :hover{

@@ -4,7 +4,7 @@ import {Form, Button} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Course from "../../Pages/Course";
 
-const AdminPopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseData, course, college,setCollege, title, setTitle}) => {
+const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
     const [visible,setvisibile]=useState(false)
     let params = useParams();
 
@@ -34,7 +34,7 @@ const AdminPopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseData
     return (
         <div classname="form">
 
-            <button onClick={() => setvisibile(true)}>update</button>
+            <button onClick={() => setvisibile(true)}>create course</button>
             <Modal  style={customStyles} isOpen={visible}>
                 <button className='modalButton' onClick={() => setvisibile(false)}>Close</button>
                 <Form>
@@ -42,7 +42,7 @@ const AdminPopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseData
                         <Form.Label> {labelText}</Form.Label>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
-                        <p>Please enter the data you would like to edit</p>
+                        <p>Please enter the data for the course you would like to create</p>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="college:"/>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="department:"/>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="title:"/>
@@ -64,4 +64,4 @@ const AdminPopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseData
     );
 };
 
-export default AdminPopup;
+export default CreatePopup;

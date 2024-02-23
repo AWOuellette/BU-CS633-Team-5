@@ -122,7 +122,10 @@
     background-image: linear-gradient(to bottom right,   #b2d8d8,#66b2b2);
     font-style: italic;
     font-family: "Verdana", SansSerif;
+    position: relative;
 }
+
+
 
 .reviews{
     margin-right: 5px;

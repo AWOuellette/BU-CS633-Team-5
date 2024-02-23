@@ -18,7 +18,11 @@ const Coursecard = ({courses,search,category, setCategory}) => {
                         return course
                     }else if(course.courseNumber.includes(search)){
                         return course
-                    }else if((course.college+" "+course.department+course.courseNumber).toLowerCase().includes(search)){
+                    }else if((course.college+" "+course.department+course.courseNumber).toLowerCase().includes(search)) {
+                        return course
+                    }else if((course.college+" "+ course.department+course.courseNumber).includes(search)) {
+                        return course
+                    }else if((course.college+" "+course.department+course.courseNumber).toUpperCase().includes(search)) {
                         return course
                     }else if((course.department+course.courseNumber).toLowerCase().includes(search)){
                         return course
