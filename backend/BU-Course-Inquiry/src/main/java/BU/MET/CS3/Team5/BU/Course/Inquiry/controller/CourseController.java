@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/courses")
 public class CourseController {
     @Autowired
@@ -35,6 +35,11 @@ public class CourseController {
     @GetMapping("/courseNumber/{courseNumber}")
     public ResponseEntity<Optional<List<Course>>> getCourseByCourseNumber(@PathVariable String courseNumber){
         return new ResponseEntity<Optional<List<Course>>>(courseService.courseByCourseNumber(courseNumber),HttpStatus.OK);
+    }
+
+    @GetMapping("/ID/{id}")
+    public ResponseEntity<Object> findById(@PathVariable ObjectId id){
+        return new ResponseEntity<Object>(courseService.findById(id),HttpStatus.OK);
     }
 
     @GetMapping("/college/{college}")

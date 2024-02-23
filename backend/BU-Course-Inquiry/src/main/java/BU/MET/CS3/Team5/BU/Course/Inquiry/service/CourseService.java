@@ -30,6 +30,9 @@ public class CourseService {
     public Optional<List<Course>> courseByCourseNumber(String courseNumber){
         return courseRepository.findCourseByCourseNumber(courseNumber);
     }
+    public Optional<Course> findById(ObjectId id){
+        return courseRepository.findById(id);
+    }
 
     public Optional<List<Course>> courseByCollege(String college){
         return courseRepository.findCourseByCollege(college);

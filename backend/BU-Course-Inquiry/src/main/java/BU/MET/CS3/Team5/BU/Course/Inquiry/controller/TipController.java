@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/tips")
 public class TipController {
     @Autowired
@@ -28,7 +28,7 @@ public class TipController {
     @PostMapping
     public ResponseEntity<Tip> createTip(@RequestBody Map<String, String> payload){
 
-        return new ResponseEntity<Tip>(tipService.createTip(payload.get("body"),payload.get("college"),payload.get("department"),payload.get("courseNumber")), HttpStatus.CREATED);
+        return new ResponseEntity<Tip>(tipService.createTip(payload.get("body"),payload.get("id")), HttpStatus.CREATED);
     }
 
     @GetMapping
