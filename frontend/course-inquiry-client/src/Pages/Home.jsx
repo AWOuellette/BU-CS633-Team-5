@@ -11,7 +11,7 @@ const Home = () =>{
 
         <h1> Boston University Course Inquiry System</h1>
         <p> Your guide to succeeding as a BU student </p>
-        <Link to="/browse">
+        <Link to="/Browse">
         <button> BROWSE COURSES </button>
     </Link>
     </div>

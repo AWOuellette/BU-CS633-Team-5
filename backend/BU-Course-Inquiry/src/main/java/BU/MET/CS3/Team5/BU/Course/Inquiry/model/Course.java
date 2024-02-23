@@ -29,6 +29,7 @@ public class Course {
     private String title;
     private String semester;
     private String description;
+    private String image;
     private String syllabus;
     private String professor;
     private List<String> categories;
@@ -37,7 +38,7 @@ public class Course {
     @DocumentReference
     private List<Tip> tipIds;
 
-    public Course(String college, String department, String courseNumber, String title, String semester, String description, String syllabus, String professor, List<String> categories) {
+    public Course(String college, String department, String courseNumber, String image, String title, String semester, String description, String syllabus, String professor, List<String> categories) {
         this.college = college;
         this.department = department;
         this.courseNumber = courseNumber;
@@ -47,5 +48,6 @@ public class Course {
         this.syllabus = syllabus;
         this.professor = professor;
         this.categories = categories;
+        this.image=image;
     }
 }

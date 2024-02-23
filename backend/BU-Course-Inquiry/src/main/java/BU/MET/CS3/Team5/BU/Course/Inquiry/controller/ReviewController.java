@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     @Autowired
@@ -28,7 +28,7 @@ public class ReviewController {
     @PostMapping
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> payload){
 
-        return new ResponseEntity<Review>(reviewService.createReview(payload.get("body"),payload.get("college"),payload.get("department"),payload.get("courseNumber")), HttpStatus.CREATED);
+        return new ResponseEntity<Review>(reviewService.createReview(payload.get("body"),payload.get("id")), HttpStatus.CREATED);
     }
 
     @GetMapping
