@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-//@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/tips")
 public class TipController {
     @Autowired
