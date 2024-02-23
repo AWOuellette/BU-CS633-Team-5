@@ -50,7 +50,7 @@ const Coursecard = ({courses,search,category, setCategory}) => {
                             <div>{course.categories?.map((category, i) => {
                                 return (
                                     <span>
-                                        <p className={'badge bg-info'}> {course.categories[i]}</p>
+                                        <p className={'badge text-bg-info bg-opacity-25'}> {course.categories[i]}</p>
                                     </span>
                             )
                             })} </div>
