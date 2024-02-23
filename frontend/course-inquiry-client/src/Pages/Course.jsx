@@ -10,6 +10,14 @@ import UpdatePopup from "../components/popups/UpdatePopup";
 import DeletePopup from "../components/popups/DeletePopUp";
 import axios from "axios";
 
+const adminKey='';
+const authAxios=axios.create({
+    baseURL:'https://bu-course-inquiry-backend.onrender.com',
+    headers:{
+        Authorization:`${adminKey}`
+    }
+})
+
 
 
 const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle,department, setDepartment, courseNumber, setCourseNumber,description, setDescription, syllabus, setSyllabus, professor, setProfessor, categories, semester, setSemester, setCategories, courseimage, setImage })=> {
@@ -70,7 +78,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         {
 
 
-            const response = await api.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value});
+            const response = await authAxios.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value});
             console.log("upsert" + response.data);
 
             const updatedCollege = [...college, {college: collegetxt.value}];
