@@ -39,7 +39,7 @@ console.log(course.id);
                 <button className='modalButton' onClick={() => setvisibile(false)}>Close</button>
                 <Form>
                     <Form.Group className="reviewform" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label> {labelText}</Form.Label>
+                        <Form.Label> <h5>{labelText}</h5></Form.Label>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
                         <p>Please confirm the course ID you would like to delete</p>

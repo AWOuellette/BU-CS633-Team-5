@@ -22,7 +22,7 @@ const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descript
             overflowY:"scroll"
         },
         content: {
-            top: '40%',
+            top: '50%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
@@ -31,7 +31,8 @@ const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descript
             width:'500px',
             backgroundImage: 'linear-gradient(to bottom right,   #E0E9EC ,#B5BDBF )',
             color: 'black',
-            height:"700px"
+            height:"700px",
+
         },
     };
 
@@ -44,7 +45,7 @@ const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descript
                 <button className='modalButton' onClick={() => setvisibile(false)}>Close</button>
                 <Form>
                     <Form.Group className="reviewform" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label> {labelText}</Form.Label>
+                        <Form.Label> <h5>{labelText}</h5></Form.Label>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
                         <p>Please enter the data you would like to edit</p>
@@ -53,10 +54,10 @@ const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descript
                         Course number:<Form.Control ref={courseNumberTxt} as="textarea" rows={1} defaultValue={courseNumber}/>
                         Course title:<Form.Control ref={titleTxt} as="textarea" rows={1} defaultValue={title}/>
                         Semester:<Form.Control ref={semesterTxt} as="textarea" rows={1} defaultValue={semester}/>
-                        Description:<Form.Control ref={descriptionTxt} as="textarea" rows={1} defaultValue={description}/>
-                        Syllabus:<Form.Control ref={syllabusTxt} as="textarea" rows={1} defaultValue={syllabus}/>
+                        Description:<Form.Control ref={descriptionTxt} as="textarea" rows={4} defaultValue={description}/>
+                        Syllabus:<Form.Control ref={syllabusTxt} as="textarea" rows={2} defaultValue={syllabus}/>
                         Professor:<Form.Control ref={professorTxt} as="textarea" rows={1} defaultValue={professor}/>
-                        Categories:<Form.Control ref={categoriesTxt} as="textarea" rows={1} defaultValue={categories}/>
+                        Categories:<Form.Control ref={categoriesTxt} as="textarea" rows={2} defaultValue={categories}/>
                         Image:<Form.Control ref={imageTxt} as="textarea" rows={1} defaultValue={courseimage}/>
 
                     </Form.Group>
