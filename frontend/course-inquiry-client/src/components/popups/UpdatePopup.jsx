@@ -4,7 +4,7 @@ import {Form, Button} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Course from "../../Pages/Course";
 
-const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descriptionTxt,syllabusTxt,adminKey,semesterTxt, labelText,collegeTxt,departmentTxt,courseNumberTxt,titleTxt, defaultValue,getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle,department, setDepartment, courseNumber, setCourseNumber,description, setDescription, syllabus, setSyllabus, professor, setProfessor, categories, semester, setSemester, setCategories, courseimage, setImage}) => {
+const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descriptionTxt,syllabusTxt,adminKey,setAdminKey, semesterTxt, labelText,collegeTxt,departmentTxt,courseNumberTxt,titleTxt, defaultValue,getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle,department, setDepartment, courseNumber, setCourseNumber,description, setDescription, syllabus, setSyllabus, professor, setProfessor, categories, semester, setSemester, setCategories, courseimage, setImage}) => {
     const [visible,setvisibile]=useState(false)
     let params = useParams();
 

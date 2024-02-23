@@ -10,13 +10,8 @@ import UpdatePopup from "../components/popups/UpdatePopup";
 import DeletePopup from "../components/popups/DeletePopUp";
 import axios from "axios";
 
-const adminKey='';
-const authAxios=axios.create({
-    baseURL:'https://bu-course-inquiry-backend.onrender.com',
-    headers:{
-        Authorization:`${adminKey}`
-    }
-})
+
+
 
 
 
@@ -24,6 +19,8 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
 
 
 
+
+    const deleteID= useRef();
     const adminKey = useRef();
     const revText = useRef();
     const tipText = useRef();
@@ -49,16 +46,10 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
     }, [])
 
 
+
+
     const updateCourse= async (e)=>{
-        axios.interceptors.request.use(
-            config=>{
-                config.headers.Authorization=`Bearer ${adminKey}`;
-                return config;
-            },
-            error => {
-                return Promise.reject(error)
-            }
-        )
+
 
         e.preventDefault();
 
@@ -73,43 +64,51 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         const professortxt = professorTxt.current;
         const categoriestxt = categoriesTxt.current;
         const imagetxt= imageTxt.current;
+        const adminkey= adminKey.current;
+
+        const authAxios=axios.create({
+            baseURL:'https://bu-course-inquiry-backend.onrender.com',
+            headers:{
+                ApiKey:`${adminkey.value}`
+            }
+        })
 
         try
         {
 
 
-            const response = await authAxios.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value});
+            const response = await authAxios.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value, });
             console.log("upsert" + response.data);
 
-            const updatedCollege = [...college, {college: collegetxt.value}];
+            const updatedCollege = collegetxt.value;
             collegetxt.value = "";
             setCollege(updatedCollege);
 
-            const updatedDepartment = [...department, {department: departmenttxt.value}];
+            const updatedDepartment = departmenttxt.value;
             departmenttxt.value = "";
             setDepartment(updatedDepartment);
 
-            const updatedcourseNumber = [...courseNumber, {courseNumber: courseNumbertxt.value}];
+            const updatedcourseNumber = courseNumbertxt.value;
             courseNumbertxt.value = "";
             setCourseNumber(updatedcourseNumber);
 
-            const updatedTitle = [...title, {title: titletxt.value}];
+            const updatedTitle = titletxt.value;
             titletxt.value = "";
             setTitle(updatedTitle);
 
-            const updatedSemester = [...semester, {semester: semestertxt.value}];
+            const updatedSemester = semestertxt.value;
             semestertxt.value = "";
             setSemester(updatedSemester);
 
-            const updatedDescription = [...description, {description: descriptiontxt.value}];
+            const updatedDescription =descriptiontxt.value;
             descriptiontxt.value = "";
             setDescription(updatedDescription);
 
-            const updatedSyllabus = [...syllabus, {syllabus: syllabustxt.value}];
+            const updatedSyllabus = syllabustxt.value;
             syllabustxt.value = "";
             setSyllabus(updatedSyllabus);
 
-            const updatedProfessor = [...professor, {professor: professortxt.value}];
+            const updatedProfessor = professortxt.value;
             professortxt.value = "";
             setProfessor(updatedProfessor);
 
@@ -118,7 +117,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
             setCategories(updatedCategories);
 
 
-            const updatedImage = [...imagetxt, {image: imagetxt.value}];
+            const updatedImage = imagetxt.value;
             imagetxt.value = "";
             setImage(updatedImage);
 
@@ -132,11 +131,21 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
 
     const deleteCourse= async (e)=>{
         e.preventDefault();
+
+        const adminkey= adminKey.current;
+        const deleteid= deleteID.current;
+        console.log(deleteid);
+        const authAxios=axios.create({
+            baseURL:'https://bu-course-inquiry-backend.onrender.com',
+            headers:{
+                ApiKey:`${adminkey.value}`
+            }
+        })
         try
         {
 
 
-            const response = await api.post("/api/v1/courses/secure/delete/"+{id});
+            const response = await authAxios.delete("/api/v1/courses/secure/delete/"+{deleteid});
             console.log("delete" + response.data);
 
         }
@@ -206,7 +215,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
                     <div className="delete">
                         <DeletePopup labelText="Admin use only" handleSubmit={deleteCourse}
                                      adminKey={adminKey} getCourseData={getCourseData} course={course} college={college}
-                                     setCollege={setCollege} title={title} setTitle={setTitle}/>
+                                     deleteID={deleteID} setCollege={setCollege} title={title} setTitle={setTitle}/>
                     </div>
                     <br></br>
                     <br></br>

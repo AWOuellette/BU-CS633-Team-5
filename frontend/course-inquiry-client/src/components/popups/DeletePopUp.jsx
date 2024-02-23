@@ -4,12 +4,12 @@ import {Form, Button} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Course from "../../Pages/Course";
 
-const DeletePopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseData, course, college,setCollege, title, setTitle}) => {
+const DeletePopup = ({handleSubmit,adminKey,setAdminKey,labelText,deleteID, defaultValue, getCourseData, course, college,setCollege, title, setTitle}) => {
     const [visible,setvisibile]=useState(false)
     let params = useParams();
 
 
-
+console.log(course.id);
 
 
 
@@ -43,7 +43,7 @@ const DeletePopup = ({handleSubmit,adminKey,labelText,defaultValue, getCourseDat
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
                         <p>Please confirm the course ID you would like to delete</p>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="course ID:"/>
+                        <Form.Control ref={deleteID} as="textarea" rows={1} defaultValue={course.id}/>
 
                     </Form.Group>
                     <br></br>
