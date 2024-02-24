@@ -69,6 +69,8 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
 
 
         let axiosConfig = {
+            withCredentials: true,
+
             headers: {
                 'Content-Type': 'application/json;',
                 "Access-Control-Allow-Origin": "*",
