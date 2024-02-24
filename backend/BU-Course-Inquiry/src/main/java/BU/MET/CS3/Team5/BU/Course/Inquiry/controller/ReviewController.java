@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "https://bu-course-inquiry.onrender.com/")
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     @Autowired
