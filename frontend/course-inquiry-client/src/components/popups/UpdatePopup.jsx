@@ -55,7 +55,7 @@ const UpdatePopup = ({handleSubmit,professorTxt,categoriesTxt,imageTxt, descript
                         Course title:<Form.Control ref={titleTxt} as="textarea" rows={1} defaultValue={title}/>
                         Semester:<Form.Control ref={semesterTxt} as="textarea" rows={1} defaultValue={semester}/>
                         Description:<Form.Control ref={descriptionTxt} as="textarea" rows={4} defaultValue={description}/>
-                        Syllabus:<Form.Control ref={syllabusTxt} as="textarea" rows={2} defaultValue={syllabus}/>
+                        Syllabus link:<Form.Control ref={syllabusTxt} as="textarea" rows={2} defaultValue={syllabus}/>
                         Professor:<Form.Control ref={professorTxt} as="textarea" rows={1} defaultValue={professor}/>
                         Categories:<Form.Control ref={categoriesTxt} as="textarea" rows={2} defaultValue={categories}/>
                         Image:<Form.Control ref={imageTxt} as="textarea" rows={1} defaultValue={courseimage}/>

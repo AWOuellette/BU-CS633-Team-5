@@ -17,8 +17,12 @@ const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
         getCourseData;
     }, [])
     const customStyles = {
+        overlay: {
+            background: "rgba(0, 0, 0, 0.5)",
+            overflowY:"scroll"
+        },
         content: {
-            top: '40%',
+            top: '50%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
@@ -26,7 +30,8 @@ const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
             transform: 'translate(-50%, -50%)',
             width:'400px',
             backgroundImage: 'linear-gradient(to bottom right,   #E0E9EC ,#B5BDBF )',
-            color: 'black'
+            color: 'black',
+            height:"700px",
         },
     };
 
@@ -39,18 +44,18 @@ const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
                 <button className='modalButton' onClick={() => setvisibile(false)}>Close</button>
                 <Form>
                     <Form.Group className="reviewform" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label> {labelText}</Form.Label>
+                        <Form.Label> <h5>{labelText}</h5></Form.Label>
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
                         <p>Please enter the data for the course you would like to create</p>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="college:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="department:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="title:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="semester:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="description:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="syllabus:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="professor:"/>
-                        <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="categories:"/>
+                        Course number:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
+                        Course title:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
+                        Semester:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
+                        Description:<Form.Control ref={adminKey} as="textarea" rows={4} defaultValue=""/>
+                        Syllabus link:<Form.Control ref={adminKey} as="textarea" rows={2} defaultValue=""/>
+                        Professor:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
+                        Categories:<Form.Control ref={adminKey} as="textarea" rows={2} defaultValue=""/>
+                        Image file:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
 
                     </Form.Group>
                     <br></br>

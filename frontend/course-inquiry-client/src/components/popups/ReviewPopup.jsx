@@ -31,7 +31,7 @@ const ReviewPopup = ({handleSubmit,revText,labelText,defaultValue}) => {
                 <button className='modalButton' onClick={() => setvisibile(false)}>Close</button>
                 <Form>
                     <Form.Group className="reviewform" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label> {labelText}</Form.Label>
+                        <Form.Label><h5> {labelText}</h5></Form.Label>
                         <Form.Control ref={revText} as="textarea" rows={3} defaultValue={defaultValue}/>
                     </Form.Group>
                     <br></br>

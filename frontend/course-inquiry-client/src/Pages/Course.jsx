@@ -66,14 +66,10 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         const imagetxt= imageTxt.current;
         const adminkey= adminKey.current;
 
-        const authAxios=axios.create({
-            baseURL:'https://bu-course-inquiry-backend.onrender.com',
 
-        })
 
         let axiosConfig = {
             headers: {
-                'Origin':'http://localhost:3000/',
                 'Content-Type': 'application/json;',
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers":"ApiKey",
@@ -92,7 +88,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         {
 
 
-            const response = await authAxios.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value, }, axiosConfig);
+            const response = await api.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value, }, axiosConfig);
             console.log("upsert" + response.data);
 
             const updatedCollege = collegetxt.value;

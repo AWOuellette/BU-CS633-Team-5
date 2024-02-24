@@ -51,7 +51,10 @@ import CreatePopup from "../components/popups/CreatePopUp";
                      </div>
 
                  </div>
-
+                 <div className="create">
+                     <CreatePopup labelText="Admin use only" handleSubmit={updateCourse}
+                                  adminKey={adminKey} getCourseData={getCourseData}/>
+                 </div>
 
 
                  <div className="bottom">
