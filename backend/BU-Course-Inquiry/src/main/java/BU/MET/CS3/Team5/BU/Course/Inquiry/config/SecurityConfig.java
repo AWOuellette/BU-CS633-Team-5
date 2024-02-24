@@ -3,6 +3,7 @@ package BU.MET.CS3.Team5.BU.Course.Inquiry.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -25,6 +26,7 @@ public class SecurityConfig {
                 .formLogin(AbstractHttpConfigurer::disable)
                 .securityMatcher("/**")
                 .authorizeHttpRequests(registry -> registry
+                        .requestMatchers(HttpMethod.OPTIONS,"/**").permitAll()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/courses/secure/**") ).authenticated()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/reviews/secure/**") ).authenticated()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/api/v1/tips/secure/**") ).authenticated()
