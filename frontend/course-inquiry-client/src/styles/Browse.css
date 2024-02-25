@@ -47,6 +47,9 @@ padding-bottom: 5px;
 
 .courseList{
     margin-top: -100px;
+    display: flex;
+    height: auto;
+    min-height: 450px;
 }
 .banner img{
     width: 100%;
