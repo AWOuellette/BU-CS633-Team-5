@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "https://bu-course-inquiry.onrender.com/")
+@CrossOrigin(origins = "https://bu-course-inquiry.onrender.com/",allowCredentials = "true")
 @RequestMapping("/api/v1/reviews")
 public class ReviewController {
     @Autowired
