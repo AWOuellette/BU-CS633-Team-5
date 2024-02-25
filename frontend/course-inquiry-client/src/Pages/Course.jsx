@@ -72,16 +72,8 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
             withCredentials: true,
 
             headers: {
-                'Content-Type': 'application/json;',
-                "Access-Control-Allow-Origin": "*",
+
                 "Access-Control-Allow-Headers":"ApiKey",
-                "Access-Control-Allow-Methods": [
-                    "POST",
-                    "GET",
-                    "OPTIONS",
-                    "DELETE",
-                    "PUT",
-                ],
                 ApiKey:`${adminkey.value}`
             }
         };
