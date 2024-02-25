@@ -94,7 +94,7 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Browse' element={<Browse getCourseData={getCourseData} courses={courses} categories={categories} setCategories={setCategories} />}/>
                 <Route path='/About' element={<About/>}/>
-                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDecription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} courseimage={courseimage} setImage={setImage} title={title} setTitle={setTitle} categories={categories} setCategories={setCategories}/>}/>
+                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDescription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} courseimage={courseimage} setImage={setImage} title={title} setTitle={setTitle} categories={categories} setCategories={setCategories}/>}/>
 
             </Routes>
             <Footer/>

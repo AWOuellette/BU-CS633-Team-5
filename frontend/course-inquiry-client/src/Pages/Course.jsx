@@ -9,6 +9,7 @@ import TipPopup  from "../components/popups/TipPopup";
 import UpdatePopup from "../components/popups/UpdatePopup";
 import DeletePopup from "../components/popups/DeletePopUp";
 import axios from "axios";
+import axiosConfig from "../api/axiosConfig";
 
 
 
@@ -18,7 +19,10 @@ import axios from "axios";
 const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, college, setCollege, title, setTitle,department, setDepartment, courseNumber, setCourseNumber,description, setDescription, syllabus, setSyllabus, professor, setProfessor, categories, semester, setSemester, setCategories, courseimage, setImage })=> {
 
 
+console.log(reviews);
 
+const currentReviews=reviews;
+const currentTips=tips;
 
     const deleteID= useRef();
     const adminKey = useRef();
@@ -65,10 +69,13 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         const categoriestxt = categoriesTxt.current;
         const imagetxt= imageTxt.current;
         const adminkey= adminKey.current;
+        const tipss=currentTips;
+        const reviewss=currentReviews;
 
 
 
-        let axiosConfig = {
+        var categoriesArray = categoriestxt.value.split(',');
+        const axiosConfig = {
             withCredentials: true,
 
             headers: {
@@ -82,7 +89,7 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         {
 
 
-            const response = await api.post("/api/v1/courses/secure/upsert", {categories: categoriestxt.value, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value, }, axiosConfig);
+            const response = await api.post("/api/v1/courses/secure/upsert", {tipIds: tipss, reviewIds:reviewss, categories: categoriesArray, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, id: id, image: imagetxt.value, }, axiosConfig);
             console.log("upsert" + response.data);
 
             const updatedCollege = collegetxt.value;
@@ -126,6 +133,8 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
             imagetxt.value = "";
             setImage(updatedImage);
 
+            console.log("update successful");
+
         }
         catch(err)
         {
@@ -151,22 +160,24 @@ console.log(err);
 
     const deleteCourse= async (e)=>{
         e.preventDefault();
-
         const adminkey= adminKey.current;
-        const deleteid= deleteID.current;
-        console.log(deleteid);
-        const authAxios=axios.create({
-            baseURL:'https://bu-course-inquiry-backend.onrender.com',
-            headers:{
-                "Access-Control-Allow-Origin": "*",
+        const axiosConfig = {
+            withCredentials: true,
+
+            headers: {
+
+                "Access-Control-Allow-Headers":"ApiKey",
                 ApiKey:`${adminkey.value}`
             }
-        })
+        };
+
+
+
         try
         {
 
 
-            const response = await authAxios.delete(`/api/v1/courses/secure/delete/${id}`);
+            const response = await api.delete(`/api/v1/courses/secure/delete/${id}`, axiosConfig)
             console.log("delete" + response.data);
 
         }
@@ -230,7 +241,7 @@ console.log(err);
                     </div>
                     <div className="update">
                         <UpdatePopup labelText="Admin use only" handleSubmit={updateCourse}
-                                     adminKey={adminKey} getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDecription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} courseimage={courseimage} setImage={setImage} title={title} setTitle={setTitle} categories={categories} setCategories={setCategories}
+                                     adminKey={adminKey} getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips}  setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDecription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} courseimage={courseimage} setImage={setImage} title={title} setTitle={setTitle} categories={categories} setCategories={setCategories}
                                      imageTxt={imageTxt} categoriesTxt={categoriesTxt} professorTxt={professorTxt} syllabusTxt={syllabusTxt} descriptionTxt={descriptionTxt} semesterTxt={semesterTxt} titleTxt={titleTxt} collegeTxt={collegeTxt} departmentTxt={departmentTxt} courseNumberTxt={courseNumberTxt}/>
                     </div>
                     <div className="delete">

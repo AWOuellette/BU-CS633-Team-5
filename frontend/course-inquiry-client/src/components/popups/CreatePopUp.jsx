@@ -4,7 +4,7 @@ import {Form, Button} from "react-bootstrap";
 import {useParams} from "react-router-dom";
 import Course from "../../Pages/Course";
 
-const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
+const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,professorTxt,categoriesTxt,imageTxt, descriptionTxt,syllabusTxt,semesterTxt,collegeTxt,departmentTxt,courseNumberTxt,titleTxt}) => {
     const [visible,setvisibile]=useState(false)
     let params = useParams();
 
@@ -48,14 +48,16 @@ const CreatePopup = ({handleSubmit,adminKey,labelText, getCourseData,}) => {
                         <Form.Control ref={adminKey} as="textarea" rows={1} defaultValue="Enter API Key here"/>
                         <br></br>
                         <p>Please enter the data for the course you would like to create</p>
-                        Course number:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
-                        Course title:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
-                        Semester:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
-                        Description:<Form.Control ref={adminKey} as="textarea" rows={4} defaultValue=""/>
-                        Syllabus link:<Form.Control ref={adminKey} as="textarea" rows={2} defaultValue=""/>
-                        Professor:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
-                        Categories:<Form.Control ref={adminKey} as="textarea" rows={2} defaultValue=""/>
-                        Image file:<Form.Control ref={adminKey} as="textarea" rows={1} defaultValue=""/>
+                        College:<Form.Control ref={collegeTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Department:<Form.Control ref={departmentTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Course number:<Form.Control ref={courseNumberTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Course title:<Form.Control ref={titleTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Semester:<Form.Control ref={semesterTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Description:<Form.Control ref={descriptionTxt} as="textarea" rows={4} defaultValue={""}/>
+                        Syllabus link:<Form.Control ref={syllabusTxt} as="textarea" rows={2} defaultValue={""}/>
+                        Professor:<Form.Control ref={professorTxt} as="textarea" rows={1} defaultValue={""}/>
+                        Categories:<Form.Control ref={categoriesTxt} as="textarea" rows={2} defaultValue={""}/>
+                        Image:<Form.Control ref={imageTxt} as="textarea" rows={1} defaultValue={""}/>
 
                     </Form.Group>
                     <br></br>

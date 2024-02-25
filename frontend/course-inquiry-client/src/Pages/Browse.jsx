@@ -17,22 +17,69 @@ import CreatePopup from "../components/popups/CreatePopUp";
      const[category,setCategory]=useState([]);
      const adminKey = useRef();
 
+     const collegeTxt=useRef();
+     const departmentTxt=useRef();
+     const courseNumberTxt=useRef();
+     const titleTxt=useRef();
+     const semesterTxt=useRef();
+     const descriptionTxt=useRef();
+     const syllabusTxt=useRef();
+     const professorTxt=useRef();
+     const categoriesTxt=useRef();
+     const imageTxt= useRef();
 
 
-
-     const updateCourse= async (e)=>{
+     const createCourse= async (e)=>{
          e.preventDefault();
+         const collegetxt = collegeTxt.current;
+         const departmenttxt = departmentTxt.current;
+         const courseNumbertxt = courseNumberTxt.current;
+         const titletxt = titleTxt.current;
+         const semestertxt = semesterTxt.current;
+         const descriptiontxt = descriptionTxt.current;
+         const syllabustxt = syllabusTxt.current;
+         const professortxt = professorTxt.current;
+         const categoriestxt = categoriesTxt.current;
+         const imagetxt= imageTxt.current;
+         const adminkey= adminKey.current;
+
+         var categoriesArray = categoriestxt.value.split(',');
+
+
+         const axiosConfig = {
+             withCredentials: true,
+
+             headers: {
+
+                 "Access-Control-Allow-Headers":"ApiKey",
+                 ApiKey:`${adminkey.value}`
+             }
+         };
          try
          {
 
-             const response = await api.post("/api/v1/courses/secure/upsert");
-             console.log("upsert" + response.data);
+             const response = await api.post("/api/v1/courses/secure/upsert",{categories: categoriesArray, professor: professortxt.value, syllabus: syllabustxt.value, description: descriptiontxt.value, semester: semestertxt.value, title: titletxt.value, courseNumber: courseNumbertxt.value, department:departmenttxt.value, college: collegetxt.value, image: imagetxt.value, }, axiosConfig);
+             console.log("create successful" + response.data);
 
          }
          catch(err)
          {
+             // setRequestError(err.message)
              console.log(err);
-         }
+
+             if (err.response){
+                 console.log(err);
+//do something
+
+             }else if(err.request){
+                 console.log(err);
+//do something else
+
+             }else if(err.message) {
+                 console.log(err);
+//do something other than the other two
+             }
+             }
      }
 
      return (
@@ -52,8 +99,8 @@ import CreatePopup from "../components/popups/CreatePopUp";
 
                  </div>
                  <div className="create">
-                     <CreatePopup labelText="Admin use only" handleSubmit={updateCourse}
-                                  adminKey={adminKey} getCourseData={getCourseData}/>
+                     <CreatePopup labelText="Admin use only" handleSubmit={createCourse}
+                                  adminKey={adminKey} getCourseData={getCourseData} imageTxt={imageTxt} categoriesTxt={categoriesTxt} professorTxt={professorTxt} syllabusTxt={syllabusTxt} descriptionTxt={descriptionTxt} semesterTxt={semesterTxt} titleTxt={titleTxt} collegeTxt={collegeTxt} departmentTxt={departmentTxt} courseNumberTxt={courseNumberTxt}/>
                  </div>
 
 
