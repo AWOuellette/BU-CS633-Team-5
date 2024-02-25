@@ -129,9 +129,24 @@ const Course= ({getCourseData, course, reviews, tips, setTips, setReviews, colle
         }
         catch(err)
         {
-            setRequestError(err.message)
+           // setRequestError(err.message)
             console.log(err);
+
+            if (err.response){
+console.log(err);
+//do something
+
+            }else if(err.request){
+                console.log(err);
+//do something else
+
+            }else if(err.message){
+                console.log(err);
+//do something other than the other two
+
+            }
         }
+
     }
 
     const deleteCourse= async (e)=>{
