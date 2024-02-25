@@ -7,9 +7,9 @@ import Browse from './Pages/Browse';
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
 import Course from "./Pages/Course";
-import Admin from "./Pages/Admin";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 
 
@@ -25,7 +25,7 @@ function App() {
     const[description, setDescription]= useState();
     const[syllabus, setSyllabus]= useState();
     const[professor, setProfessor]= useState();
-    const[image, setImage]= useState();
+    const[courseimage, setImage]= useState();
     const[title,setTitle]=useState();
 
 
@@ -94,8 +94,8 @@ function App() {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/Browse' element={<Browse getCourseData={getCourseData} courses={courses} categories={categories} setCategories={setCategories} />}/>
                 <Route path='/About' element={<About/>}/>
-                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDecription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} image={image} setImage={setImage} title={title} setTitle={setTitle}/>}/>
-                <Route path='/Admin' element={<Admin/>}/>
+                <Route path='/Course/:id' element={<Course getCourseData={getCourseData} course={course} reviews = {reviews} tips={tips} setReviews={setReviews} setTips={setTips} college={college} setCollege={setCollege} department={department} setDepartment={setDepartment} courseNumber={courseNumber} setCourseNumber= {setCourseNumber} description={description} setDescription={setDescription} semester={semester} setSemester={setSemester} syllabus={syllabus} setSyllabus={setSyllabus} professor={professor} setProfessor={setProfessor} courseimage={courseimage} setImage={setImage} title={title} setTitle={setTitle} categories={categories} setCategories={setCategories}/>}/>
+
             </Routes>
             <Footer/>
         </BrowserRouter>

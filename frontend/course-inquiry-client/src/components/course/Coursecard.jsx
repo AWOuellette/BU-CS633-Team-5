@@ -18,7 +18,11 @@ const Coursecard = ({courses,search,category, setCategory}) => {
                         return course
                     }else if(course.courseNumber.includes(search)){
                         return course
-                    }else if((course.college+" "+course.department+course.courseNumber).toLowerCase().includes(search)){
+                    }else if((course.college+" "+course.department+course.courseNumber).toLowerCase().includes(search)) {
+                        return course
+                    }else if((course.college+" "+ course.department+course.courseNumber).includes(search)) {
+                        return course
+                    }else if((course.college+" "+course.department+course.courseNumber).toUpperCase().includes(search)) {
                         return course
                     }else if((course.department+course.courseNumber).toLowerCase().includes(search)){
                         return course
@@ -49,11 +53,11 @@ const Coursecard = ({courses,search,category, setCategory}) => {
 
                             <div className="ptag">
 
-                            <div>{course.categories?.map((category, i) => {
+                            <div className="categories">{course.categories?.map((category, i) => {
                                 return (
-                                    <span>
+
                                         <p className={'badge text-bg-info bg-opacity-25'}> {course.categories[i]}</p>
-                                    </span>
+
                             )
                             })} </div>
                             </div>

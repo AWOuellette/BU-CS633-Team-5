@@ -1,9 +1,21 @@
 .courses{
     display: flex;
+    flex-direction: row;
     gap: 1rem;
     width: 70vw;
+    height: auto;
 
 
+}
+.categories{
+
+    height: auto;
+
+}
+.categories p{
+    padding: 1px;
+    margin-bottom:0px;
+    margin-top: 0px;
 }
 .courses :hover{
     background-image: linear-gradient(to bottom right,   #b2d8d8,#66b2b2);
@@ -14,6 +26,16 @@
 .courses:hover button{
 
     background-image: none;
+}
+
+.courses button{
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: teal ;
+    color: white;
+    height: 30px;
+    width: 130px;
+
 }
 
 
