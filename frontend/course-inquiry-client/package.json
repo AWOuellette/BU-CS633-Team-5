@@ -13,9 +13,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "next": "^16.2.11",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-dom": "^18.2.0",
@@ -28,7 +25,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "serve": "node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -50,16 +46,12 @@
     "tailwindcss": "^3.4.1"
   },
   "overrides": {
-    "nth-check": ">=2.0.1",
+    "nth-check": "1.0.2",
     "serialize-javascript": ">=6.0.2",
     "underscore": ">=1.13.8",
     "brace-expansion": ">=5.0.7",
     "svgo": ">=2.8.3",
     "fast-uri": ">=3.1.4",
-    "next": {
-      "postcss": ">=8.5.18",
-      "sharp": ">=0.35.0"
-    },
     "resolve-url-loader": {
       "postcss": ">=8.5.18"
     }
